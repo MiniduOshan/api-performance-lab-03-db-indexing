@@ -1,5 +1,3 @@
-USE performance_lab_03;
-
 INSERT INTO products (name, category, price, stock)
 SELECT
   CONCAT('Product ', n),

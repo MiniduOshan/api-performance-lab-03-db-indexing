@@ -16,9 +16,11 @@ const pool = mysql.createPool({
 app.get("/products", async (req, res) => {
   try {
     const [rows] = await pool.query(`
-      SELECT * FROM products
+      SELECT id, name, category, price, stock, created_at
+      FROM products
       WHERE category = 'Laptop'
       ORDER BY created_at DESC
+      LIMIT 50
     `);
 
     res.json({
